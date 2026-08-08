@@ -1,0 +1,55 @@
+{
+  "name": "hmrc-exchange-rate",
+  "version": "1.0.2",
+  "description": "Official HM Revenue & Customs (United Kingdom) monthly exchange rates — ~140 currencies vs GBP, history since 2021. Zero-dependency Node.js/TypeScript client.",
+  "keywords": [
+    "hmrc",
+    "hm",
+    "revenue",
+    "&",
+    "customs",
+    "exchange-rate",
+    "exchange-rates",
+    "currency",
+    "forex",
+    "fx",
+    "gbp",
+    "central-bank",
+    "official-rates",
+    "united-kingdom",
+    "api",
+    "typescript"
+  ],
+  "homepage": "https://allratestoday.com/central-bank-rates-api/hmrc/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllRates-Today/hmrc-exchange-rate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AllRates-Today/hmrc-exchange-rate/issues"
+  },
+  "license": "MIT",
+  "author": "AllRatesToday <hello@allratestoday.com> (https://allratestoday.com)",
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    }
+  },
+  "files": [
+    "index.mjs",
+    "index.cjs",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": false
+}
