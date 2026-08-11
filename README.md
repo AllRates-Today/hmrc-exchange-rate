@@ -1,10 +1,10 @@
 # HM Revenue & Customs Exchange Rate API client
 
-Official **HM Revenue & Customs** (the United Kingdom) monthly exchange rates in Node.js / TypeScript — ~140 currencies against the GBP, with history back to 2021. Zero dependencies, works in Node 18+, Bun, Deno, and edge runtimes (uses global `fetch`).
+Official **HM Revenue & Customs** (the United Kingdom) monthly exchange rates in Node.js / TypeScript — 141 currencies against the GBP, with history back to 2021. Zero dependencies, works in Node 18+, Bun, Deno, and edge runtimes (uses global `fetch`).
 
 These are the *published tax authority rates* required for tax filings, customs valuations, audits, and compliant invoicing — not moving market rates. Every response carries the publisher's own publication date.
 
-Powered by [AllRatesToday](https://allratestoday.com/central-bank-rates-api/hmrc/). Get a free API key at [allratestoday.com/register](https://allratestoday.com/register) — 300 requests/month, no credit card.
+Powered by [AllRatesToday](https://allratestoday.com/tax-authority-rates-api/hmrc/). Get a free API key at [allratestoday.com/register](https://allratestoday.com/register) — no credit card required.
 
 ## Install
 
@@ -42,6 +42,14 @@ const series = await getHistory(
 );
 ```
 
+## Currencies covered
+
+HM Revenue & Customs currently publishes rates covering **142 currencies** (as of the latest table):
+
+`AED` · `ALL` · `AMD` · `AOA` · `ARS` · `AUD` · `AWG` · `AZN` · `BAM` · `BBD` · `BDT` · `BHD` · `BIF` · `BMD` · `BND` · `BOB` · `BRL` · `BSD` · `BTN` · `BWP` · `BYN` · `BZD` · `CAD` · `CDF` · `CHF` · `CLP` · `CNY` · `COP` · `CRC` · `CUP` · `CVE` · `CZK` · `DJF` · `DKK` · `DOP` · `DZD` · `EGP` · `ERN` · `ETB` · `EUR` · `FJD` · `GBP` · `GEL` · `GHS` · `GMD` · `GNF` · `GTQ` · `GYD` · `HKD` · `HNL` · `HTG` · `HUF` · `IDR` · `ILS` · `INR` · `IQD` · `ISK` · `JMD` · `JOD` · `JPY` · `KES` · `KGS` · `KHR` · `KMF` · `KRW` · `KWD` · `KYD` · `KZT` · `LAK` · `LBP` · `LKR` · `LRD` · `LSL` · `LYD` · `MAD` · `MDL` · `MGA` · `MKD` · `MMK` · `MNT` · `MOP` · `MRU` · `MUR` · `MVR` · `MWK` · `MXN` · `MYR` · `MZN` · `NGN` · `NIO` · `NOK` · `NPR` · `NZD` · `OMR` · `PAB` · `PEN` · `PGK` · `PHP` · `PKR` · `PLN` · `PYG` · `QAR` · `RON` · `RSD` · `RUB` · `RWF` · `SAR` · `SBD` · `SCR` · `SDG` · `SEK` · `SGD` · `SLE` · `SOS` · `SRD` · `SVC` · `SZL` · `THB` · `TMT` · `TND` · `TOP` · `TRY` · `TTD` · `TWD` · `TZS` · `UAH` · `UGX` · `USD` · `UYU` · `UZS` · `VES` · `VND` · `VUV` · `WST` · `XAF` · `XCD` · `XOF` · `XPF` · `YER` · `ZAR` · `ZMW` · `ZWG`
+
+Pairs the tax authority does not print directly are resolved from this table (see below).
+
 ## Published vs derived rates
 
 If HM Revenue & Customs does not print a pair directly, the API resolves it from the bank's table (inverse, or a cross rate via GBP) and flags it `derived: true` with the `method` — so official and computed values are never confused.
@@ -50,7 +58,7 @@ If HM Revenue & Customs does not print a pair directly, the API resolves it from
 
 - Every request counts toward your AllRatesToday monthly quota. Rates change once per business day — cache a day's table locally and a small quota goes a long way.
 - Latest rates are on every plan (including free); historical dates and time series need a [paid plan](https://allratestoday.com/pricing/).
-- Full API reference: [allratestoday.com/docs#central-bank](https://allratestoday.com/docs/#central-bank) · All covered banks: [central bank rates API](https://allratestoday.com/central-bank-rates-api/)
+- Full API reference: [allratestoday.com/docs#central-bank](https://allratestoday.com/docs/#central-bank) · All covered sources: [tax authority rates API](https://allratestoday.com/tax-authority-rates-api/)
 
 ## License
 
