@@ -1,4 +1,4 @@
-# HM Revenue & Customs Exchange Rate API — hmrc-exchange-rate
+# HM Revenue & Customs Exchange Rates API — hmrc-exchange-rate
 
 [![npm version](https://img.shields.io/npm/v/hmrc-exchange-rate.svg)](https://www.npmjs.com/package/hmrc-exchange-rate)
 [![license](https://img.shields.io/npm/l/hmrc-exchange-rate.svg)](https://github.com/AllRates-Today/hmrc-exchange-rate/blob/main/LICENSE)
@@ -18,6 +18,21 @@
 
 > **Official rate, not mid-market:** every value here is a number HM Revenue & Customs itself published, fixed once printed and carrying the tax authority's own `rate_date` — what filings and audits require. Need the live interbank midpoint for pricing or display instead? Use the [mid-market API](https://allratestoday.com/docs/) or [`@allratestoday/sdk`](https://www.npmjs.com/package/@allratestoday/sdk). The two can diverge by several percent.
 
+## ⚡ Try it without a key
+
+The latest HM Revenue & Customs table is also served keyless, CORS-open and edge-cached, for evaluation, embeds and AI agents:
+
+```bash
+curl "https://allratestoday.com/api/open/central-bank/hmrc?source=GBP&target=USD"
+```
+
+```js
+const r = await fetch('https://allratestoday.com/api/open/central-bank/hmrc').then((x) => x.json());
+console.log(r.rate_date, r.rates.length); // the tax authority's latest published table, no key
+```
+
+The open endpoint serves the *latest* table only and asks for a visible attribution link. The client below uses the keyed API, which adds point-in-time tables, history, and CSV/XML/Excel output.
+
 ## 🔑 Get your API key
 
 Get a free API key at [allratestoday.com/register](https://allratestoday.com/register) — no credit card required. Latest rates are on every plan, including free.
@@ -36,7 +51,7 @@ yarn add hmrc-exchange-rate
 pnpm add hmrc-exchange-rate
 ```
 
-Also published under the org scope as [`@allratestoday/hmrc-exchange-rate`](https://www.npmjs.com/package/@allratestoday/hmrc-exchange-rate) — same code, same versions.
+Requires Node 18+ (global `fetch`); also runs on Bun, Deno and edge runtimes. Also published under the org scope as [`@allratestoday/hmrc-exchange-rate`](https://www.npmjs.com/package/@allratestoday/hmrc-exchange-rate) — same code, same versions.
 
 ## 🏁 Quick start
 
@@ -77,7 +92,7 @@ const pair = await getRate('GBP', 'USD', { apiKey: 'art_live_...' });
   rate_type: 'monthly',
   derived: false,
   method: 'published',
-  disclaimer: '…'
+  disclaimer: 'Official rates as published by the named central bank. On weekends/holidays the most recent published rate_date is returned.'
 }
 ```
 
@@ -174,6 +189,39 @@ HM Revenue & Customs currently publishes rates covering **141 currencies** again
 
 🇦🇪 `AED` · 🇦🇱 `ALL` · 🇦🇲 `AMD` · 🇦🇴 `AOA` · 🇦🇷 `ARS` · 🇦🇺 `AUD` · 🇦🇼 `AWG` · 🇦🇿 `AZN` · 🇧🇦 `BAM` · 🇧🇧 `BBD` · 🇧🇩 `BDT` · 🇧🇭 `BHD` · 🇧🇮 `BIF` · 🇧🇲 `BMD` · 🇧🇳 `BND` · 🇧🇴 `BOB` · 🇧🇷 `BRL` · 🇧🇸 `BSD` · 🇧🇹 `BTN` · 🇧🇼 `BWP` · 🇧🇾 `BYN` · 🇧🇿 `BZD` · 🇨🇦 `CAD` · 🇨🇩 `CDF` · 🇨🇭 `CHF` · 🇨🇱 `CLP` · 🇨🇳 `CNY` · 🇨🇴 `COP` · 🇨🇷 `CRC` · 🇨🇺 `CUP` · 🇨🇻 `CVE` · 🇨🇿 `CZK` · 🇩🇯 `DJF` · 🇩🇰 `DKK` · 🇩🇴 `DOP` · 🇩🇿 `DZD` · 🇪🇬 `EGP` · 🇪🇷 `ERN` · 🇪🇹 `ETB` · 🇪🇺 `EUR` · 🇫🇯 `FJD` · 🇬🇪 `GEL` · 🇬🇭 `GHS` · 🇬🇲 `GMD` · 🇬🇳 `GNF` · 🇬🇹 `GTQ` · 🇬🇾 `GYD` · 🇭🇰 `HKD` · 🇭🇳 `HNL` · 🇭🇹 `HTG` · 🇭🇺 `HUF` · 🇮🇩 `IDR` · 🇮🇱 `ILS` · 🇮🇳 `INR` · 🇮🇶 `IQD` · 🇮🇸 `ISK` · 🇯🇲 `JMD` · 🇯🇴 `JOD` · 🇯🇵 `JPY` · 🇰🇪 `KES` · 🇰🇬 `KGS` · 🇰🇭 `KHR` · 🇰🇲 `KMF` · 🇰🇷 `KRW` · 🇰🇼 `KWD` · 🇰🇾 `KYD` · 🇰🇿 `KZT` · 🇱🇦 `LAK` · 🇱🇧 `LBP` · 🇱🇰 `LKR` · 🇱🇷 `LRD` · 🇱🇸 `LSL` · 🇱🇾 `LYD` · 🇲🇦 `MAD` · 🇲🇩 `MDL` · 🇲🇬 `MGA` · 🇲🇰 `MKD` · 🇲🇲 `MMK` · 🇲🇳 `MNT` · 🇲🇴 `MOP` · 🇲🇷 `MRU` · 🇲🇺 `MUR` · 🇲🇻 `MVR` · 🇲🇼 `MWK` · 🇲🇽 `MXN` · 🇲🇾 `MYR` · 🇲🇿 `MZN` · 🇳🇬 `NGN` · 🇳🇮 `NIO` · 🇳🇴 `NOK` · 🇳🇵 `NPR` · 🇳🇿 `NZD` · 🇴🇲 `OMR` · 🇵🇦 `PAB` · 🇵🇪 `PEN` · 🇵🇬 `PGK` · 🇵🇭 `PHP` · 🇵🇰 `PKR` · 🇵🇱 `PLN` · 🇵🇾 `PYG` · 🇶🇦 `QAR` · 🇷🇴 `RON` · 🇷🇸 `RSD` · 🇷🇺 `RUB` · 🇷🇼 `RWF` · 🇸🇦 `SAR` · 🇸🇧 `SBD` · 🇸🇨 `SCR` · 🇸🇩 `SDG` · 🇸🇪 `SEK` · 🇸🇬 `SGD` · 🇸🇱 `SLE` · 🇸🇴 `SOS` · 🇸🇷 `SRD` · 🇸🇻 `SVC` · 🇸🇿 `SZL` · 🇹🇭 `THB` · 🇹🇲 `TMT` · 🇹🇳 `TND` · 🇹🇴 `TOP` · 🇹🇷 `TRY` · 🇹🇹 `TTD` · 🇹🇼 `TWD` · 🇹🇿 `TZS` · 🇺🇦 `UAH` · 🇺🇬 `UGX` · 🇺🇸 `USD` · 🇺🇾 `UYU` · 🇺🇿 `UZS` · 🇻🇪 `VES` · 🇻🇳 `VND` · 🇻🇺 `VUV` · 🇼🇸 `WST` · `XAF` · `XCD` · `XOF` · `XPF` · 🇾🇪 `YER` · 🇿🇦 `ZAR` · 🇿🇲 `ZMW` · 🇿🇼 `ZWG`
 
+## 🏛️ Source
+
+HM Revenue & Customs is the United Kingdom's tax, payments, and customs authority. It publishes one official exchange rate table per calendar month — released ahead of the month it applies to — and that single rate is what UK customs declarations and VAT invoices must use for the whole month, regardless of how the market moves in between.
+
+- Publisher's own page: [Monthly exchange rates for customs and VAT](https://www.trade-tariff.service.gov.uk/exchange_rates) · [www.gov.uk/government/organisations/hm-revenue-customs](https://www.gov.uk/government/organisations/hm-revenue-customs)
+- Publication: every month; the exact schedule, freshness status and any current delay are on the [HM Revenue & Customs rates page](https://allratestoday.com/tax-authority-rates-api/hmrc/)
+- Values are stored unmodified, with the publisher's own `rate_date` on every row — see the [methodology](https://allratestoday.com/official-rates-methodology/)
+
+## 🧭 Reading the numbers
+
+- `value` is always **quote currency per 1 unit of base currency** (`base: "EUR", quote: "USD", value: 1.15` means 1 EUR = 1.15 USD).
+- HM Revenue & Customs quotes **foreign currency per 1 GBP** (e.g. `base: "GBP", quote: "USD"` means USD per one GBP).
+- Need the other way round? Ask `getRate(target, source)` and the API inverts or crosses for you, flagged `derived: true` — never divide a published rate yourself in a compliance workflow.
+- `rate_type` tells you which of the tax authority's series a row belongs to (`monthly` here); some publishers print buy/sell or several fixings for the same pair.
+
+## 🧩 ERP & accounting systems
+
+Loading the official HM Revenue & Customs rate into an accounting system is a supported workflow, not a hack. Step-by-step guides with the direction each system expects:
+
+- [Dynamics 365 Business Central](https://allratestoday.com/docs/integrations/business-central/) — built-in Currency Exchange Rate Service, no code
+- [Xero](https://allratestoday.com/docs/integrations/xero/) · [QuickBooks Online](https://allratestoday.com/docs/integrations/quickbooks/) · [SAP S/4HANA and ECC](https://allratestoday.com/docs/integrations/sap/) · [Odoo](https://allratestoday.com/docs/integrations/odoo/)
+
+The same keyed endpoints return `?format=csv`, `?format=xml` and `?format=xlsx`, and accept the key as `?api_key=` on the URL for importers that cannot send headers:
+
+```bash
+curl "https://allratestoday.com/api/v1/central-bank/hmrc/latest?format=xml&api_key=art_live_..."
+```
+
+## 🤖 AI agents
+
+- MCP server: `npx -y @allratestoday/central-bank-mcp` (stdio) or the hosted endpoint `https://allratestoday.com/api/mcp` — tools for official rates, history, cross-bank comparison and publication calendars
+- Machine-readable site guide: [llms.txt](https://allratestoday.com/llms.txt) · [for-ai-agents](https://allratestoday.com/for-ai-agents/)
+
 ## ⚖️ Published vs derived rates
 
 If HM Revenue & Customs does not print a pair directly, the API resolves it from the tax authority's own table and says so — official and computed values are never confused:
@@ -248,7 +296,8 @@ Need the whole archive rather than an API call? The same published tables are mi
 
 - [HM Revenue & Customs rates page](https://allratestoday.com/tax-authority-rates-api/hmrc/) — live table, publication cadence, FAQ
 - [All tax authority sources](https://allratestoday.com/tax-authority-rates-api/)
-- [API documentation](https://allratestoday.com/docs/#central-bank) · [Interactive reference](https://allratestoday.com/api-reference/)
+- [Package docs on the site](https://allratestoday.com/docs/sdk/hmrc-exchange-rate/) · [ERP integration guides](https://allratestoday.com/docs/integrations/)
+- [API documentation](https://allratestoday.com/docs/#central-bank) · [Interactive reference](https://allratestoday.com/api-reference/) · [Methodology](https://allratestoday.com/official-rates-methodology/)
 - [Register (free)](https://allratestoday.com/register) · [Pricing](https://allratestoday.com/pricing/)
 - [GitHub](https://github.com/AllRates-Today/hmrc-exchange-rate)
 
