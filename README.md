@@ -85,10 +85,10 @@ const pair = await getRate('GBP', 'USD', { apiKey: 'art_live_...' });
 {
   bank: 'hmrc',
   name: 'HM Revenue & Customs',
-  rate_date: '2026-09-01',   // HM Revenue & Customs's own publication date
+  rate_date: '2026-10-01',   // HM Revenue & Customs's own publication date
   source: 'GBP',
   target: 'USD',
-  rate: 1.3554,
+  rate: 1.3456,
   rate_type: 'monthly',
   derived: false,
   method: 'published',
@@ -113,9 +113,9 @@ console.log(table.rate_date, table.rates.length);
 {
   bank: 'hmrc',
   name: 'HM Revenue & Customs',
-  rate_date: '2026-09-01',
+  rate_date: '2026-10-01',
   rates: [
-    { "base": "GBP", "quote": "USD", "type": "monthly", "value": 1.3554 },
+    { "base": "GBP", "quote": "USD", "type": "monthly", "value": 1.3456 },
     // … the rest of the published table (141 currencies vs GBP)
   ],
   disclaimer: '…'
@@ -155,7 +155,7 @@ Paid plans. One resolved rate per publication date — ready for charting, reval
 import { getHistory } from 'hmrc-exchange-rate';
 
 const series = await getHistory(
-  { source: 'GBP', target: 'USD', from: '2026-01-01', to: '2026-09-01' },
+  { source: 'GBP', target: 'USD', from: '2026-01-01', to: '2026-10-01' },
   { apiKey: 'art_live_...' }
 );
 ```
@@ -168,11 +168,11 @@ const series = await getHistory(
   source: 'GBP',
   target: 'USD',
   from: '2026-01-01',
-  to: '2026-09-01',
+  to: '2026-10-01',
   count: 152,
   rates: [
     // one entry per publication date
-    { date: '2026-09-01', rate: 1.3554, rate_type: 'monthly', derived: false, method: 'published' },
+    { date: '2026-10-01', rate: 1.3456, rate_type: 'monthly', derived: false, method: 'published' },
     // …
   ],
   disclaimer: '…'
