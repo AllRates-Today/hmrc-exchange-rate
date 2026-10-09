@@ -4,6 +4,8 @@
 [![license](https://img.shields.io/npm/l/hmrc-exchange-rate.svg)](https://github.com/AllRates-Today/hmrc-exchange-rate/blob/main/LICENSE)
 [![zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)](https://www.npmjs.com/package/hmrc-exchange-rate)
 [![TypeScript](https://img.shields.io/badge/TypeScript-types%20included-3178C6.svg)](https://www.typescriptlang.org/)
+[![GBP/USD today](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fallratestoday.com%2Fapi%2Fopen%2Fcentral-bank%2Fhmrc%3Fsource%3DGBP%26target%3DUSD&query=%24.rate&label=GBP%2FUSD%20published%20by%20HM%20Revenue%20%26%20Customs&color=0A7E8C&cacheSeconds=3600)](https://allratestoday.com/tax-authority-rates-api/hmrc/)
+[![rate date](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fallratestoday.com%2Fapi%2Fopen%2Fcentral-bank%2Fhmrc%3Fsource%3DGBP%26target%3DUSD&query=%24.rate_date&label=rate%20date&color=555&cacheSeconds=3600)](https://allratestoday.com/tax-authority-rates-api/hmrc/)
 
 **Official HM Revenue & Customs (the United Kingdom) monthly exchange rates for Node.js and TypeScript. The published tax authority rates behind tax filings, customs valuations, audits, and compliant invoicing — not market estimates, but the numbers HM Revenue & Customs itself prints, every month.**
 
@@ -32,6 +34,79 @@ console.log(r.rate_date, r.rates.length); // the tax authority's latest publishe
 ```
 
 The open endpoint serves the *latest* table only and asks for a visible attribution link. The client below uses the keyed API, which adds point-in-time tables, history, and CSV/XML/Excel output.
+
+## 📈 Latest published table
+
+Today's full HM Revenue & Customs table, straight from the tax authority's latest publication. On GitHub it is refreshed by [a daily Action](.github/workflows/daily-table.yml) that reads the keyless endpoint above and commits only when the tax authority publishes a new table; the copy on npm is as of the package's publish date.
+
+<!-- daily-table:start -->
+Published **2026-10-01** by HM Revenue & Customs — 141 rates, first 60 shown. Updated 2026-10-08.
+
+| Base | Quote | Type | Rate |
+| --- | --- | --- | ---: |
+| GBP | AED | monthly | 4.9418 |
+| GBP | ALL | monthly | 107.0437 |
+| GBP | AMD | monthly | 489.0579 |
+| GBP | AOA | monthly | 1233.1555 |
+| GBP | ARS | monthly | 2027.5756 |
+| GBP | AUD | monthly | 1.8868 |
+| GBP | AWG | monthly | 2.4086 |
+| GBP | AZN | monthly | 2.2875 |
+| GBP | BAM | monthly | 2.2815 |
+| GBP | BBD | monthly | 2.6912 |
+| GBP | BDT | monthly | 165.6588 |
+| GBP | BHD | monthly | 0.5059 |
+| GBP | BIF | monthly | 4027.0511 |
+| GBP | BMD | monthly | 1.3456 |
+| GBP | BND | monthly | 1.7135 |
+| GBP | BOB | monthly | 16.1986 |
+| GBP | BRL | monthly | 6.927 |
+| GBP | BSD | monthly | 1.3456 |
+| GBP | BTN | monthly | 129.0581 |
+| GBP | BWP | monthly | 18.1782 |
+| GBP | BYN | monthly | 4.0782 |
+| GBP | BZD | monthly | 2.7091 |
+| GBP | CAD | monthly | 1.8758 |
+| GBP | CDF | monthly | 3102.3658 |
+| GBP | CHF | monthly | 1.102 |
+| GBP | CLP | monthly | 1284.8396 |
+| GBP | CNY | monthly | 9.0274 |
+| GBP | COP | monthly | 4198.0295 |
+| GBP | CRC | monthly | 602.5178 |
+| GBP | CUP | monthly | 32.3035 |
+| GBP | CVE | monthly | 128.6341 |
+| GBP | CZK | monthly | 28.3582 |
+| GBP | DJF | monthly | 239.61 |
+| GBP | DKK | monthly | 8.7205 |
+| GBP | DOP | monthly | 79.4809 |
+| GBP | DZD | monthly | 179.9788 |
+| GBP | EGP | monthly | 70.079 |
+| GBP | ERN | monthly | 20.1842 |
+| GBP | ETB | monthly | 217.507 |
+| GBP | EUR | monthly | 1.1665 |
+| GBP | FJD | monthly | 2.9777 |
+| GBP | GEL | monthly | 3.498 |
+| GBP | GHS | monthly | 15.4436 |
+| GBP | GMD | monthly | 99.5772 |
+| GBP | GNF | monthly | 11842.4924 |
+| GBP | GTQ | monthly | 10.2705 |
+| GBP | GYD | monthly | 281.4221 |
+| GBP | HKD | monthly | 10.5562 |
+| GBP | HNL | monthly | 36.152 |
+| GBP | HTG | monthly | 175.9225 |
+| GBP | HUF | monthly | 425.2162 |
+| GBP | IDR | monthly | 23773.0976 |
+| GBP | ILS | monthly | 4.0783 |
+| GBP | INR | monthly | 129.0581 |
+| GBP | IQD | monthly | 1763.3813 |
+| GBP | ISK | monthly | 163.0905 |
+| GBP | JMD | monthly | 212.3121 |
+| GBP | JOD | monthly | 0.954 |
+| GBP | JPY | monthly | 208.5932 |
+| GBP | KES | monthly | 174.3866 |
+
+[Full table on the HM Revenue & Customs rates page](https://allratestoday.com/tax-authority-rates-api/hmrc/) · Source: [Official rates published by HMRC, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/hmrc/). Rates are as printed by the tax authority; AllRatesToday is not affiliated with it.
+<!-- daily-table:end -->
 
 ## 🔑 Get your API key
 
