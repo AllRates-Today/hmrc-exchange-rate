@@ -42,7 +42,7 @@ The open endpoint serves the *latest* table only and asks for a visible attribut
 The image is rendered live from the keyless endpoint above, so it follows the tax authority's publications on npm and on GitHub alike without a new release. The text copy below is there for search and copy-paste: on GitHub [a daily Action](.github/workflows/daily-table.yml) refreshes it whenever the tax authority publishes a new table; on npm it is as of the package's publish date.
 
 <!-- daily-table:start -->
-Published **2026-10-01** by HM Revenue & Customs — 141 rates, first 60 shown. Updated 2026-10-14.
+Published **2026-10-01** by HM Revenue & Customs — 141 rates, first 60 shown. Updated 2026-10-16.
 
 | Base | Quote | Type | Rate |
 | --- | --- | --- | ---: |
@@ -107,7 +107,7 @@ Published **2026-10-01** by HM Revenue & Customs — 141 rates, first 60 shown. 
 | GBP | JPY | monthly | 208.5932 |
 | GBP | KES | monthly | 174.3866 |
 
-[Full table on the HM Revenue & Customs rates page](https://allratestoday.com/tax-authority-rates-api/hmrc/) · Source: [Official rates published by HMRC, served by AllRatesToday](https://allratestoday.com/central-bank-rates-api/hmrc/). Rates are as printed by the tax authority; AllRatesToday is not affiliated with it.
+[Full table on the HM Revenue & Customs rates page](https://allratestoday.com/tax-authority-rates-api/hmrc/) · Source: [Official rates published by HMRC, served by AllRatesToday](https://allratestoday.com/tax-authority-rates-api/hmrc/). Rates are as printed by the tax authority; AllRatesToday is not affiliated with it.
 <!-- daily-table:end -->
 
 ## 🔑 Get your API key
