@@ -362,6 +362,7 @@ Need the whole archive rather than an API call? The same published tables are mi
 
 ## 🔗 Links
 
+- **Website:** [allratestoday.com](https://allratestoday.com)
 - [HM Revenue & Customs rates page](https://allratestoday.com/tax-authority-rates-api/hmrc/) — live table, publication cadence, FAQ
 - [All tax authority sources](https://allratestoday.com/tax-authority-rates-api/)
 - [Package docs on the site](https://allratestoday.com/docs/sdk/hmrc-exchange-rate/) · [ERP integration guides](https://allratestoday.com/docs/integrations/)
